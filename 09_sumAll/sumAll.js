@@ -1,17 +1,19 @@
-const sumAll = function(val1, val2) {
-    if (!Number.isInteger(val1) || !Number.isInteger(val2)) return "ERROR"
-    if(val1 < 0 || val2 < 0) return "ERROR"
+const sumAll = function (smallerVal, greaterVal) {
+  if (!Number.isInteger(smallerVal) || !Number.isInteger(greaterVal))
+    return "ERROR";
+  if (smallerVal < 0 || greaterVal < 0) return "ERROR";
 
-    const numbersArray = []
-    numbersArray.push(val1, val2)
-    numbersArray.sort()
-    
-    let sum = 0;
-    for (let i = numbersArray[0]; i <= numbersArray[1]; i++) {
-        sum += i
-    }
+  if (smallerVal > greaterVal) {
+    const temp = smallerVal;
+    smallerVal = greaterVal;
+    greaterVal = temp;
+  }
 
-    return sum
+  let totalVal = 0;
+  for (i = smallerVal; i <= greaterVal; i++) {
+    totalVal += i;
+  }
+  return totalVal;
 };
 
 // Do not edit below this line
